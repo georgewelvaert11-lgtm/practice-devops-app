@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: practice-devops-app
+  name: practice-devops-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: practice-devops-app
+  template:
+    metadata:
+      labels:
+        app: practice-devops-app
+    spec:
+      containers:
+        - name: practice-devops-app
+          image: practice-devops-app
+          imagePullPolicy: Never
+          envFrom:
+            - configMapRef:
+                name: practice-devops-config
+          ports:
+            - containerPort: 5000
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 5000
+            initialDelaySeconds: 10
+            periodSeconds: 15
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 5000
+            initialDelaySeconds: 5
+            periodSeconds: 10

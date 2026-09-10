@@ -1,21 +1,11 @@
+import os
 import random
 from datetime import datetime, timezone
 from flask import Flask, jsonify, render_template_string
 
 app = Flask(__name__)
 
-TIPS = [
-    "Containers should be stateless. If it needs to remember, it needs a volume.",
-    "A pod is not a VM. Stop trying to SSH into it out of habit.",
-    "If your Dockerfile has more than 10 layers, ask yourself why.",
-    "YAML indentation errors are the #1 cause of 2am debugging sessions.",
-    "Health checks aren't optional. They're how Kubernetes knows you're lying.",
-    "Every replica is a promise. Kubernetes just keeps it.",
-    "'It works on my machine' is not a deployment strategy.",
-    "A Secret is just a ConfigMap wearing a disguise.",
-    "The best time to write documentation was during the bug. The second best time is now.",
-    "CI/CD doesn't remove human error. It just catches it faster.",
-]
+TIPS = os.environ.get("TIPS", "No tips available").split("|")
 
 PAGE = """
 <!DOCTYPE html>

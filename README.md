@@ -4,7 +4,7 @@
 A deliberately minimal Flask App, built as a vehicle to practice and demonstrate use of Docker, Kubernetes, Git Branching, and CI/CD - the app was made using ClaudeCode and it's functionality is intentionally trivial.
 
 ## Status - 
-The intial app is working locally. Git repo has been set up with proper .gitignore then pushed to the created GitHub repo. Made a specific Dockerization branch.
+## Status - App has been Dockerized and deployed to a local Kubernetes cluster (Deployment, Service, ConfigMap, health probes). Self-healing and scaling tested. CI/CD not yet added.
 
 ## Tech stack
 | Layer | Choice |
