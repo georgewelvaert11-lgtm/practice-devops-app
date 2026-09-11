@@ -44,3 +44,6 @@
   4. Docker Hub repo didn't exist yet - had to create it manually first
   5. Wrong username in tags: - had accidentally used GitHub username instead of actual Docker Hub username
 - Workflow now runs successfully on every push, confirmed image appears on Docker Hub
+
+## Note on branch discipline
+- Planned to use a separate feature branch for each phase (dockerize, k8s-deploy, add-ci), merging into main once each was working, this was followed correctly for the Dockerizing phase (see "Merge branch 'dockerize'" in commit history). For the Kubernetes and CI/CD phases, work ended up committed directly to main rather than on their own branches, branch discipline slipped partway through the project. The work itself is unaffected (all commits are still clearly labeled and readable in order), but the intended branch-per-phase workflow wasn't fully maintained throughout.
